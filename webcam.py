@@ -1,6 +1,7 @@
 import cv2
 import streamlit as st
 from tensorflow.keras.models import load_model
+import streamlit_webrtc
 # import pydot
 import pandas as pd
 import numpy as np
@@ -75,9 +76,6 @@ with c3:
 
     st.markdown('''Minimum confidence value ([0.0, 1.0]) for face detection to be considered successful.''')
 
-
-
-
 with st.container():
 
     while checkbox:
@@ -85,7 +83,7 @@ with st.container():
         st.caption("Use check box to stop the video")
         frame_window = st.image([])
 
-        
+
         mask_detection_model = load_model('MaskDetection.h5')
 
         def mask(img):
