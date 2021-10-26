@@ -1,7 +1,6 @@
 import cv2
 import streamlit as st
 from tensorflow.keras.models import load_model
-import streamlit_webrtc
 # import pydot
 import pandas as pd
 import numpy as np
