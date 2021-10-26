@@ -187,6 +187,5 @@ with st.container():
 
     else:
         video_capture.release()
-        cv2.destroyAllWindows()
         st.markdown("## **There is not available webcam**")
         st.image("Sad.png")
