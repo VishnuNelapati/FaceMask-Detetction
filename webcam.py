@@ -124,7 +124,7 @@ with st.container():
             
             
             
-            while video_capture.isOpened():
+            while True:
                 success, image = video_capture.read()
 
             #     if not success:
