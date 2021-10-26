@@ -120,11 +120,11 @@ with st.container():
 
         with mp_face_detection.FaceDetection(model_selection=model_selection, min_detection_confidence=model_detect_conf) as face_detection:
 
-            st.write(video_capture.isOpened())
             
             
             
-            while True:
+            
+            while video_capture.isOpened():
                 success, image = video_capture.read()
 
             #     if not success:
@@ -135,7 +135,7 @@ with st.container():
                 # '''To improve performance, optionally mark the image as not writeable to
                 # # pass by reference.'''
 
-                image.flags.writeable = False
+                #image.flags.writeable = False
 
                 # '''Converting color from BGR to RGB'''
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -144,7 +144,7 @@ with st.container():
                 results = face_detection.process(image)
 
                 # Draw the face detection annotations on the image.
-                image.flags.writeable = True
+                #image.flags.writeable = True
                 image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
                 counter = 0
                 if results.detections:
