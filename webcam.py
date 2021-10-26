@@ -81,11 +81,15 @@ with c3:
 with st.container():
 
     while checkbox:
+        
 #         st.markdown("## **Now You are accesing the internal webcam**")
 #         st.caption("Use check box to stop the video")
         frame_window = st.image([])
-
+    
+        st.write("Model loading")
         mask_detection_model = load_model('MaskDetection.h5')
+        
+        
 
         def mask(img):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -116,6 +120,7 @@ with st.container():
 
         with mp_face_detection.FaceDetection(model_selection=model_selection, min_detection_confidence=model_detect_conf) as face_detection:
 
+            st.write("Inside Detection")
             while video_capture.isOpened():
                 success, image = video_capture.read()
 
@@ -179,6 +184,7 @@ with st.container():
                                 fontScale = 0.6,color = colorbox)
 
 
+                st.write("Show Image")
                 show = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
                 frame_window.image(show)
 
