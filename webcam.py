@@ -120,7 +120,10 @@ with st.container():
 
         with mp_face_detection.FaceDetection(model_selection=model_selection, min_detection_confidence=model_detect_conf) as face_detection:
 
-            st.write("Inside Detection")
+            st.write(video_capture.isOpened())
+            
+            
+            
             while video_capture.isOpened():
                 success, image = video_capture.read()
 
