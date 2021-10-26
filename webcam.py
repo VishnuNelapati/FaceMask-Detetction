@@ -1,11 +1,11 @@
 import cv2
 import streamlit as st
 from tensorflow.keras.models import load_model
+# import pydot
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import mediapipe as mp
-
 
 st.title("FACE MASK DETETCION")
 
@@ -79,13 +79,11 @@ with c3:
 
 
 with st.container():
-    c = 0
 
     while checkbox:
-        if c == 0:
-            st.markdown("## **Now You are accesing the internal webcam**")
-            st.caption("Use check box to stop the video")
-            frame_window = st.image([])
+        st.markdown("## **Now You are accesing the internal webcam**")
+        st.caption("Use check box to stop the video")
+        frame_window = st.image([])
 
         mask_detection_model = load_model('MaskDetection.h5')
 
