@@ -81,15 +81,12 @@ with c3:
 with st.container():
 
     while checkbox:
-        
-#         st.markdown("## **Now You are accesing the internal webcam**")
-#         st.caption("Use check box to stop the video")
+        st.markdown("## **Now You are accesing the internal webcam**")
+        st.caption("Use check box to stop the video")
         frame_window = st.image([])
-    
-        st.write("Model loading")
+
+        
         mask_detection_model = load_model('MaskDetection.h5')
-        
-        
 
         def mask(img):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -120,10 +117,6 @@ with st.container():
 
         with mp_face_detection.FaceDetection(model_selection=model_selection, min_detection_confidence=model_detect_conf) as face_detection:
 
-            
-            
-            
-            
             while video_capture.isOpened():
                 success, image = video_capture.read()
 
@@ -135,7 +128,7 @@ with st.container():
                 # '''To improve performance, optionally mark the image as not writeable to
                 # # pass by reference.'''
 
-                #image.flags.writeable = False
+                image.flags.writeable = False
 
                 # '''Converting color from BGR to RGB'''
                 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -144,7 +137,7 @@ with st.container():
                 results = face_detection.process(image)
 
                 # Draw the face detection annotations on the image.
-                #image.flags.writeable = True
+                image.flags.writeable = True
                 image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
                 counter = 0
                 if results.detections:
@@ -187,7 +180,6 @@ with st.container():
                                 fontScale = 0.6,color = colorbox)
 
 
-                st.write("Show Image")
                 show = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
                 frame_window.image(show)
 
