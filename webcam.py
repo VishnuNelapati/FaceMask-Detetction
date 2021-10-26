@@ -81,8 +81,8 @@ with c3:
 with st.container():
 
     while checkbox:
-        st.markdown("## **Now You are accesing the internal webcam**")
-        st.caption("Use check box to stop the video")
+#         st.markdown("## **Now You are accesing the internal webcam**")
+#         st.caption("Use check box to stop the video")
         frame_window = st.image([])
 
         mask_detection_model = load_model('MaskDetection.h5')
