@@ -1,13 +1,11 @@
 import cv2
 import streamlit as st
 from tensorflow.keras.models import load_model
-import pydot
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import mediapipe as mp
-import cv2
-import mediapipe as mp
+
 
 st.title("FACE MASK DETETCION")
 
